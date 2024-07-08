@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var gameManager: Game!
+    
     lazy var secondViewController: SecondViewController = getSecondViewController()
     
     private func getSecondViewController() -> SecondViewController {
@@ -30,8 +33,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        self.number = Int.random(in: 1...50)
-        self.label.text = String(self.number)
+        gameManager = Game(startValue: 1, endValue: 50, rounds: 5)
+        updateLabelWithSecretNumber(newText: gameManager.currentSecretValue)
     }
     
     override func loadView() {
@@ -66,24 +69,14 @@ class ViewController: UIViewController {
 //            self.round = 1
 //        } else {
             let numSlider = Int(self.slider.value.rounded())
-            if numSlider > self.number {
-                self.points += 50 - numSlider + self.number
-            } else if numSlider < self.number {
-                self.points += 50 - self.number + numSlider
+            gameManager?.calculateScore(with: Int(numSlider))
+            if gameManager.isGameEnded {
+                showAlertWith(score: gameManager.score)
+                gameManager.restartGame()
             } else {
-                self.points += 50
+                gameManager.startNewRound()
             }
-            if self.round == 5 {
-                let alert = UIAlertController(title: "Игра окончена", message: "Вы заработали \(self.points) очков", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                self.round = 1
-                self.points = 0
-            } else {
-                self.round += 1
-            }
-            self.number = Int.random(in: 1...50)
-            self.label.text = String(self.number)
+            updateLabelWithSecretNumber(newText: gameManager.currentSecretValue)
 //        }
     }
 
@@ -97,6 +90,16 @@ class ViewController: UIViewController {
 //        self.present(viewController, animated: true, completion: nil)
         
         self.present(secondViewController, animated: true, completion: nil)
+    }
+    
+    func updateLabelWithSecretNumber(newText: Int) {
+        label.text = String(newText)
+    }
+    
+    func showAlertWith(score: Int) {
+        let alert = UIAlertController(title: "Игра окончена", message: "Вы заработали \(score) очков", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

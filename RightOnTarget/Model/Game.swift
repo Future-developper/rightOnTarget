@@ -39,6 +39,7 @@ class Game: GameProtocol {
         } else {
             return false
         }
+
     }
     
     init?(startValue: Int, endValue: Int, rounds: Int) {
