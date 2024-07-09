@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        gameManager = Game(startValue: 1, endValue: 50, rounds: 5)
+        gameManager = Game(rounds: 5)
         updateLabelWithSecretNumber(newText: gameManager.currentSecretValue)
     }
     
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 //        } else {
             let numSlider = Int(self.slider.value.rounded())
             gameManager?.calculateScore(with: Int(numSlider))
-            if gameManager.isGameEnded {
+        if gameManager.round.isGameEnded {
                 showAlertWith(score: gameManager.score)
                 gameManager.restartGame()
             } else {

@@ -13,59 +13,39 @@ protocol GameProtocol {
     
     var currentSecretValue: Int { get }
     
-    var isGameEnded: Bool { get }
     
-    func restartGame()
-    
-    func startNewRound()
     
     func calculateScore(with value: Int)
 }
 
 class Game: GameProtocol {
     
+    var generator = RandomNumberGenerator(startValue: 1, endValue: 50)!
+    var round = Round()
     var score: Int = 0
     
-    private var minSecretValue: Int
-    private var maxSecretValue: Int
+   
     var currentSecretValue: Int = 0
     
-    private var lastRound: Int
-    private var currentRound: Int = 1
     
-    var isGameEnded: Bool {
-        if currentRound >= lastRound {
-            return true
-        } else {
-            return false
-        }
-
-    }
     
-    init?(startValue: Int, endValue: Int, rounds: Int) {
-        guard startValue <= endValue else {
-            return nil
-        }
-        minSecretValue = startValue
-        maxSecretValue = endValue
-        lastRound = rounds
-        currentSecretValue = self.getNewSecretValue()
+    init?(rounds: Int) {
+        
+//        var round = Round(lastRound: rounds)
+        currentSecretValue = generator.getNewSecretValue()
     }
     
     func restartGame() {
-        currentRound = 0
+        round.currentRound = 0
         score = 0
         startNewRound()
     }
     
     func startNewRound() {
-        currentSecretValue = self.getNewSecretValue()
-        currentRound += 1
+        currentSecretValue = generator.getNewSecretValue()
+        round.currentRound += 1
     }
     
-    private func getNewSecretValue() -> Int {
-        (minSecretValue...maxSecretValue).randomElement()!
-    }
     
     func calculateScore(with value: Int) {
         if value > currentSecretValue {

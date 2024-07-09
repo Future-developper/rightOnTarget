@@ -15,6 +15,8 @@
 		278514622C399BAA006860D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278514602C399BAA006860D7 /* LaunchScreen.storyboard */; };
 		2785146A2C3ACBF2006860D7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278514692C3ACBF2006860D7 /* SecondViewController.swift */; };
 		2785146D2C3C2127006860D7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785146C2C3C2127006860D7 /* Game.swift */; };
+		2785146F2C3C51FD006860D7 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785146E2C3C51FD006860D7 /* Round.swift */; };
+		278514712C3C53FD006860D7 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278514702C3C53FD006860D7 /* RandomNumberGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		278514632C399BAA006860D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		278514692C3ACBF2006860D7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2785146C2C3C2127006860D7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		2785146E2C3C51FD006860D7 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		278514702C3C53FD006860D7 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				2785146C2C3C2127006860D7 /* Game.swift */,
+				2785146E2C3C51FD006860D7 /* Round.swift */,
+				278514702C3C53FD006860D7 /* RandomNumberGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 				2785146D2C3C2127006860D7 /* Game.swift in Sources */,
 				2785145A2C399BA9006860D7 /* ViewController.swift in Sources */,
 				278514562C399BA9006860D7 /* AppDelegate.swift in Sources */,
+				2785146F2C3C51FD006860D7 /* Round.swift in Sources */,
+				278514712C3C53FD006860D7 /* RandomNumberGenerator.swift in Sources */,
 				278514582C399BA9006860D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +322,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruslan.RightOnTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -341,7 +349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruslan.RightOnTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
